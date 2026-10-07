@@ -12,8 +12,14 @@ import { Instructor } from './data.js';
  * constant. The behaviour is identical:
  *   below 60000 -> 'low', 60000 to 89999 -> 'mid', 90000 and above -> 'high'
  */
-export const bandOf = (salary: number): string => {
-  // TODO
+export const bandOf = (salary: number): string => {   // the parameter is annotated, the return type is inferred
+  if (salary < 60000) {
+    return 'low';
+  } else if (salary < 90000) {
+    return 'mid';
+  } else if (salary >= 90000) { 
+    return 'high';
+  }
   throw new Error('not implemented');
 };
 
@@ -26,8 +32,10 @@ export const bandOf = (salary: number): string => {
  * already given, the parameter needs no annotation of its own.
  */
 export const isSenior: (instructor: Instructor) => boolean = (instructor) => {
-  // TODO
-  throw new Error('not implemented');
+  if (instructor.salary >= 80000) {
+    return true;
+  }
+  return false;
 };
 
 // --- 2c. Optional parameters and the conditional expression ---------------
@@ -41,8 +49,10 @@ export const isSenior: (instructor: Instructor) => boolean = (instructor) => {
  * Use the conditional expression:  condition ? valueIfTrue : valueIfFalse
  */
 export const officeLabel = (instructor: Instructor, building?: string): string => {
-  // TODO
-  throw new Error('not implemented');
+  if (building) {
+    return `${instructor.name}, ${building}`;
+  }
+  return `${instructor.name}, building unknown`;
 };
 
 // --- 2d. Scope ------------------------------------------------------------
@@ -50,6 +60,7 @@ export const officeLabel = (instructor: Instructor, building?: string): string =
 /**
  * This one is written for you. Predict what it prints BEFORE you run it,
  * write your prediction in a comment, then run it and compare.
+ * my prediction: i won't run beacause 'capacity' is used before it is declared
  */
 export function scopeDemo(): void {
   const building = 'Taylor';
@@ -60,7 +71,8 @@ export function scopeDemo(): void {
   console.log('outside the block:', building);
 
   // Now uncomment these two lines, build, and read what the compiler says.
+//  the compiler in the terminal says:  Variable 'capacity' is used before being assigned.
   // Then move the declaration above the console.log and build again.
-  // console.log('capacity is', capacity);
-  // const capacity = 30;
+  const capacity = 30;
+  console.log('capacity is', capacity);
 }

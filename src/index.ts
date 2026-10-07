@@ -44,12 +44,12 @@ try {
 }
 
 // --- Task 2 ---
-// console.log(bandOf(87000));                          // mid
-// console.log(isSenior(instructors[3]));               // true  (Einstein, 95000)
-// console.log(isSenior(instructors[2]));               // false (Mozart, 40000)
-// console.log(officeLabel(instructors[6], 'Taylor'));  // Katz, Taylor
-// console.log(officeLabel(instructors[6]));            // Katz, building unknown
-// scopeDemo();                                         // predict this one first
+console.log(bandOf(87000));                          // mid
+console.log(isSenior(instructors[3]));               // true  (Einstein, 95000)
+console.log(isSenior(instructors[2]));               // false (Mozart, 40000)
+console.log(officeLabel(instructors[6], 'Taylor'));  // Katz, Taylor
+console.log(officeLabel(instructors[6]));            // Katz, building unknown
+scopeDemo();                                         // predict this one first
 
 // --- Task 3 ---
 // console.log(rankOf(65000));                          // assistant

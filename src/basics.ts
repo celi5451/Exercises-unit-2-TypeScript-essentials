@@ -140,8 +140,15 @@ export function departmentOf(instructorId: string): Department | undefined {
  * department, with a message naming what was not found.
  */
 export function getDepartment(deptName: string): Department {
-  // TODO
-  throw new Error('not implemented');
+  if (deptName === undefined) {
+    throw new Error('Department name is undefined');
+  }
+  for (const department of departments) {
+    if (department.deptName === deptName) {
+      return department;
+    }
+  }
+  throw new Error(`Department not found: ${deptName}`);
 }
 
 // After writing it, wrap a call to getDepartment('Nursing') in try and catch

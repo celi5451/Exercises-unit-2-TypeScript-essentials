@@ -36,12 +36,12 @@ console.log(departmentOf('15151'));                  // the Music department
 console.log(departmentOf('99999'));                  // undefined
 
 // --- Task 1e ---
-// console.log(getDepartment('Music'));                 // the Music department
-// try {
-//   getDepartment('Nursing');
-// } catch (err) {
-//   console.log('caught:', (err as Error).message);
-// }
+console.log(getDepartment('Music'));                 // the Music department
+try {
+  getDepartment('Nursing');
+} catch (err) {
+  console.log('caught:', (err as Error).message);
+}
 
 // --- Task 2 ---
 // console.log(bandOf(87000));                          // mid

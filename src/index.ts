@@ -8,32 +8,32 @@
 // until then, take these lines as they are.
 
 import { departments, instructors } from './data.js';
-// import {
-//   salaryBand, describeInstructor, instructorsIn, totalBudget,
-//   findInstructor, departmentOf, getDepartment,
-// } from './basics.js';
-// import { bandOf, isSenior, officeLabel, scopeDemo } from './functions.js';
-// import { rankOf, describeBudget, nameAndDept, withBuilding, budgetRange } from './types.js';
+import {
+  salaryBand, describeInstructor, instructorsIn, totalBudget,
+  findInstructor, departmentOf, getDepartment,
+} from './basics.js';
+import { bandOf, isSenior, officeLabel, scopeDemo } from './functions.js';
+import { rankOf, describeBudget, nameAndDept, withBuilding, budgetRange } from './types.js';
 
 console.log('The toolchain works.');
 console.log(departments.length + ' departments, ' + instructors.length + ' instructors.');
 
 // --- Task 1b ---
-// console.log(salaryBand(40000));                      // low
-// console.log(salaryBand(65000));                      // mid
-// console.log(salaryBand(95000));                      // high
-// console.log(describeInstructor(instructors[0]));     // 10101  Srinivasan (Comp. Sci.), 65000 kr
+console.log(salaryBand(40000));                      // low
+console.log(salaryBand(65000));                      // mid
+console.log(salaryBand(95000));                      // high
+console.log(describeInstructor(instructors[0]));     // 10101  Srinivasan (Comp. Sci.), 65000 kr
 
 // --- Task 1c ---
-// console.log(instructorsIn('Comp. Sci.'));            // [ 'Srinivasan', 'Katz', 'Brandt' ]
-// console.log(instructorsIn('Nursing'));               // []
-// console.log(totalBudget());                          // 595000
+console.log(instructorsIn('Comp. Sci.'));            // [ 'Srinivasan', 'Katz', 'Brandt' ]
+console.log(instructorsIn('Nursing'));               // []
+console.log(totalBudget());                          // 595000
 
 // --- Task 1d ---
-// console.log(findInstructor('22222'));                // the Einstein object
-// console.log(findInstructor('99999'));                // undefined
-// console.log(departmentOf('15151'));                  // the Music department
-// console.log(departmentOf('99999'));                  // undefined
+console.log(findInstructor('22222'));                // the Einstein object
+console.log(findInstructor('99999'));                // undefined
+console.log(departmentOf('15151'));                  // the Music department
+console.log(departmentOf('99999'));                  // undefined
 
 // --- Task 1e ---
 // console.log(getDepartment('Music'));                 // the Music department

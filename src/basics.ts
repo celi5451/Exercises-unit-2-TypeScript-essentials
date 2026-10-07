@@ -14,8 +14,8 @@ import { Department, Instructor, departments, instructors } from './data.js';
 // Which of the two needs const, and which needs let?
 
 // TODO: your two declarations here
-const buildingName: string = "Main Hall";
-let salary: number = 45000;
+const buildingName: string = "Watson"; //The type only describes what kind of value is allowed. The value is the thing the constant actually holds, and since a const can never be reassigned later, there would be no way to give it one afterwards.
+let salary: number = 45000; //let allows you to declare without a value (let salary: number;), but then it's undefined until you assign something, and TypeScript will complain if you read it before then. Since the task says it should hold a salary, give it one, such as 65000.
 
 // salary = "high"; // this line should make the compiler complain
 
@@ -34,7 +34,16 @@ let salary: number = 45000;
  */
 export function salaryBand(salary: number): string {
   // TODO
+  if (salary < 60000) {
+    return 'low';
+  } else if (salary < 90000) {
+    return 'mid';
+  } else if (salary >= 90000) {
+    return 'high';
+  }
+  
   throw new Error('not implemented');
+  
 }
 
 /**
@@ -46,8 +55,10 @@ export function salaryBand(salary: number): string {
  */
 export function describeInstructor(instructor: Instructor): string {
   // TODO
-  throw new Error('not implemented');
+  return `${instructor.id}  ${instructor.name} (${instructor.deptName}), ${instructor.salary} kr`;
+  //throw new Error('not implemented');
 }
+
 
 // --- 1c. Loops ------------------------------------------------------------
 
@@ -56,16 +67,24 @@ export function describeInstructor(instructor: Instructor): string {
  * appear in the instructors array. Use a for ... of loop.
  */
 export function instructorsIn(deptName: string): string[] {
-  // TODO
-  throw new Error('not implemented');
+  const names: string[] = [];  // the list we will return
+  for (const instructor of instructors) {   // loop through all instructors
+    if (instructor.deptName === deptName) {   // check if the department matches
+      names.push(instructor.name);   // add to the list, don't return yet
+    }
+  }
+  return names;                      // return once, after the loop is done
 }
 
 /**
  * The budgets of all departments added together.
  */
-export function totalBudget(): number {
-  // TODO
-  throw new Error('not implemented');
+export function totalBudget(): number {   
+  let total: number = 0;    // the total we will return, starting at 0
+  for (const department of departments) {   // loop through all departments
+    total += department.budget;   // add the budget to the total, don't return yet
+  }
+  return total;   // return the total budget once, after the loop is done
 }
 
 // --- 1d. Objects and interfaces -------------------------------------------
@@ -75,8 +94,12 @@ export function totalBudget(): number {
  * instructor. Note what the return type tells the caller.
  */
 export function findInstructor(id: string): Instructor | undefined {
-  // TODO
-  throw new Error('not implemented');
+  for (const instructor of instructors) {   // loop through all instructors
+    if (instructor.id === id) {   // check if the id matches
+      return instructor;  // found it, return the object
+    }
+  }
+  return undefined;  // not found
 }
 
 /**
@@ -84,9 +107,30 @@ export function findInstructor(id: string): Instructor | undefined {
  * instructor or the department cannot be found. You need both arrays.
  */
 export function departmentOf(instructorId: string): Department | undefined {
-  // TODO
-  throw new Error('not implemented');
+  for (const department of departments) {   // loop through all departments
+    for (const instructor of instructors) {   // loop through all instructors
+      if (instructor.id === instructorId && instructor.deptName === department.deptName) {   // check if the id matches and the department matches
+  
+        return department;  // found it, return the object
+      }
+    }
+  }
+  return undefined;  // not found
 }
+
+// this version works too,
+// export function departmentOf(instructorId: string): Department | undefined {
+//   const instructor = findInstructor(instructorId);
+//   if (instructor === undefined) {
+//     return undefined;
+//   }
+//   for (const department of departments) {
+//     if (department.deptName === instructor.deptName) {
+//       return department;
+//     }
+//   }
+//   return undefined;
+// }
 
 // --- 1e. Errors -----------------------------------------------------------
 

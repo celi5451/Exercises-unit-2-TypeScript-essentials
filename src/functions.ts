@@ -60,7 +60,7 @@ export const officeLabel = (instructor: Instructor, building?: string): string =
 /**
  * This one is written for you. Predict what it prints BEFORE you run it,
  * write your prediction in a comment, then run it and compare.
- * my prediction: i won't run beacause 'capacity' is used before it is declared
+ * my prediction: it won't run beacause 'capacity' is used before it is declared
  */
 export function scopeDemo(): void {
   const building = 'Taylor';

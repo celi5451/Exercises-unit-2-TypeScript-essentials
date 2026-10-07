@@ -18,9 +18,16 @@ export type Rank = 'assistant' | 'associate' | 'professor';
  *   70000 to 89999   -> 'associate'
  *   90000 and above  -> 'professor'
  *
- * When it works, try returning 'lecturer' and read the error.
+ * When it works, try returning 'lecturer' and read the error. the compiler says: Type '"lecturer"' is not assignable to type 'Rank'.
  */
 export function rankOf(salary: number): Rank {
+  if (salary < 70000) {
+    return 'assistant';
+  } else if (salary < 90000) {
+    return 'associate';
+  } else if (salary >= 90000) {
+    return 'professor';
+  }
   // TODO
   throw new Error('not implemented');
 }
@@ -36,8 +43,11 @@ export function rankOf(salary: number): Rank {
  * null. That check is called narrowing.
  */
 export function describeBudget(budget: number | null): string {
-  // TODO
-  throw new Error('not implemented');
+  typeof budget === 'number';  // narrow the type to number
+  if (budget === null) {
+    return 'budget not set';
+  }
+  return `budget ${budget} kr`;
 }
 
 // --- 3c. Destructuring ----------------------------------------------------
@@ -48,9 +58,8 @@ export function describeBudget(budget: number | null): string {
  * Take the two properties apart in the parameter list itself, rather than
  * writing instructor.name and instructor.deptName in the body.
  */
-export function nameAndDept({ name, deptName }: Instructor): string {
-  // TODO
-  throw new Error('not implemented');
+export function nameAndDept({ name, deptName }: Instructor): string {   // destructuring in the parameter list
+    return `${name} of ${deptName}`;
 }
 
 // --- 3d. Spread -----------------------------------------------------------
@@ -60,8 +69,8 @@ export function nameAndDept({ name, deptName }: Instructor): string {
  * given must not change: build a new object with the three dots.
  */
 export function withBuilding(department: Department, building: string): Department {
-  // TODO
-  throw new Error('not implemented');
+  const newDepartment={...department, building: building};    // the three dots copy all properties, then we override the building
+  return newDepartment;   // return the new object, not the old one
 }
 
 // --- 3e. A tuple ----------------------------------------------------------
@@ -71,6 +80,6 @@ export function withBuilding(department: Department, building: string): Departme
  * The return type says there are exactly two numbers.
  */
 export function budgetRange(): [number, number] {
-  // TODO
-  throw new Error('not implemented');
+  const budgets = departments.map(dept => dept.budget);
+  return [Math.min(...budgets), Math.max(...budgets)];
 }

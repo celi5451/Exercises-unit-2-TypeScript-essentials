@@ -52,12 +52,12 @@ console.log(officeLabel(instructors[6]));            // Katz, building unknown
 scopeDemo();                                         // predict this one first
 
 // --- Task 3 ---
-// console.log(rankOf(65000));                          // assistant
-// console.log(rankOf(87000));                          // associate
-// console.log(rankOf(95000));                          // professor
-// console.log(describeBudget(null));                   // budget not set
-// console.log(describeBudget(50000));                  // budget 50000 kr
-// console.log(nameAndDept(instructors[0]));            // Srinivasan of Comp. Sci.
-// console.log(withBuilding(departments[4], 'Watson')); // History, now in Watson
-// console.log(departments[4]);                         // still Painter: unchanged
-// console.log(budgetRange());                          // [ 50000, 120000 ]
+console.log(rankOf(65000));                          // assistant
+console.log(rankOf(87000));                          // associate
+console.log(rankOf(95000));                          // professor
+console.log(describeBudget(null));                   // budget not set
+console.log(describeBudget(50000));                  // budget 50000 kr
+console.log(nameAndDept(instructors[0]));            // Srinivasan of Comp. Sci.
+console.log(withBuilding(departments[4], 'Watson')); // History, now in Watson
+console.log(departments[4]);                         // still Painter: unchanged
+console.log(budgetRange());                          // [ 50000, 120000 ]
